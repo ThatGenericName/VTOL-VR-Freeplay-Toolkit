@@ -48,7 +48,18 @@ Configurations can be set in `DamageModifier.toml`
 
 ## Future planned features
 
-Will get around to these when I get around to them.
+Will get around to these when I get around to them, in no particular order.
+
+Adding the Magic Pockets information to SMS page.
+
+Configurable per Munition reload counts
+* IE, AIM-120s get 10 reloads while Mk 83s have 5.
+
+Adding fuel burn modification to teammates and enemies
+
+Adding Magic Pockets to allies and enemies.
+
+Adding Magic Pocket info for countermeasures.
 
 
 ## Quirks and Known Bugs
