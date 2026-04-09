@@ -60,7 +60,7 @@ public class MissileLauncherPatcher
 
         if (VTScenario.current == null || !__instance.parentActor.isPlayer)
         {
-            Log($"conditions failed; VTScenario: {VTScenario.current == null} {!__instance.parentActor.isPlayer}");
+            // Log($"conditions failed; VTScenario: {VTScenario.current == null} {!__instance.parentActor.isPlayer}");
             return;
         }
         Log("launch completed, checking for active coroutine");

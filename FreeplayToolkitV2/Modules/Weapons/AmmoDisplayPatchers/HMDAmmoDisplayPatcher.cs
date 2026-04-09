@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using HarmonyLib;
 
 namespace FreeplayToolkitV2.Modules.Weapons;
@@ -8,6 +9,16 @@ public class HMDAmmoDisplayPatcher
 {
 
 
+    public enum WepGroup
+    {
+        None,
+        Guns,
+        RocketLauncher,
+        MissileLauncher
+    }
+
+    private static WepGroup LastWepGroup = WepGroup.None;
+    
     [HarmonyPostfix]
     public static void Postfix(HMDWeaponInfo __instance)
     {
@@ -20,7 +31,7 @@ public class HMDAmmoDisplayPatcher
         int spareCount = 0;
 
         var firstCombEquip = __instance.wm.combinedEquips[0];
-        
+        WepGroup lastWepGroup = LastWepGroup;
         if (firstCombEquip is RocketLauncher)
         {
             foreach (var rl in __instance.wm.combinedEquips.Cast<RocketLauncher>())

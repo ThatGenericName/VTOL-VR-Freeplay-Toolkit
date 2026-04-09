@@ -2,6 +2,10 @@
 
 Semi-configurable trainers for VTOL:VR for those who are like me and are bad at the game.
 
+This mod has neither been tested for, nor expected to work in multiplayer.
+
+Some testing has been done for aircraft mods like the F-22 and the F-16 mod and should work.
+
 ## Dependencies
 
 This mod requires [VTOLAPI mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3265689427). Make sure to load that mod first before loading this mod.
@@ -51,6 +55,7 @@ Will get around to these when I get around to them.
 
 ### Magic Pockets
 
+* Only works for the player.
 * Bug where sometimes munitions cannot be used after reload until all hardpoints have been reloaded. Ie, if you have 2 hardpoints, fired off 2 missiles, you won't be able to fire that munition until both hardpoints have been reloaded.
 * When using guns, neither HUD nor HMD shows amount of bullets left in the Magic Pocket.
 

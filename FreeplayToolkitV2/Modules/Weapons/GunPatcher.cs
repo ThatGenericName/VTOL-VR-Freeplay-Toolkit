@@ -67,7 +67,7 @@ public class GunPatcher
         // if current ammo is greater or equal, no ammo was fired.
         if (__instance.currentAmmo >= StartAmmo)
         {
-            Log("No ammo was fired");
+            // Log("No ammo was fired");
             return;
         }
 
@@ -89,9 +89,9 @@ public class GunPatcher
         else if (Main.MunitionsModifier.HasReloads)
         {
             int gunId = __instance.weaponEntityID;
-            Log($"Checking Gun Id {gunId} for reloads");
+            // Log($"Checking Gun Id {gunId} for reloads");
             var magazine = GetMagazine(__instance);
-            Log($"Gun Id {gunId} has {magazine} rounds remaining!");
+            // Log($"Gun Id {gunId} has {magazine} rounds remaining!");
             if (magazine > 0)
             {
                 if (!ActiveCoroutines.ContainsKey(__instance))
@@ -103,7 +103,7 @@ public class GunPatcher
                 }
                 else
                 {
-                    Log("Gun reload coroutine already in progress");
+                    // Log("Gun reload coroutine already in progress");
                 }
             }
             else

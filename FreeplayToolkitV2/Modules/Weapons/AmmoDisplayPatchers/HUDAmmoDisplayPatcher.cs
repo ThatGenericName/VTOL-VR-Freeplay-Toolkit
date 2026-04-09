@@ -24,7 +24,7 @@ public class HUDAmmoDisplayPatcher
         
         if (firstCombEquip is RocketLauncher)
         {
-            Log("Player Equipped Rocket launcher");
+            // Log("Player Equipped Rocket launcher");
             foreach (var rl in __instance.wm.combinedEquips.Cast<RocketLauncher>())
             {
                 spareCount += RocketLauncherPatcher.GetMagazine(rl);
@@ -33,7 +33,7 @@ public class HUDAmmoDisplayPatcher
         }
         else if (firstCombEquip is HPEquipMissileLauncher)
         {
-            Log("Player Equipped Missile Launcher");
+            // Log("Player Equipped Missile Launcher");
             foreach (var mlhp in __instance.wm.combinedEquips.Cast<HPEquipMissileLauncher>())
             {
                 spareCount += MissileLauncherPatcher.GetMagazine(mlhp.ml);
@@ -42,7 +42,7 @@ public class HUDAmmoDisplayPatcher
         }
         else if (firstCombEquip is HPEquipGun)
         {
-            Log("Player Equipped Gun");
+            // Log("Player Equipped Gun");
             foreach (var ghp in __instance.wm.combinedEquips.Cast<HPEquipGun>())
             {
                 spareCount += GunPatcher.GetMagazine(ghp.gun);
@@ -51,7 +51,7 @@ public class HUDAmmoDisplayPatcher
         }
         else
         {
-            Log($"Player switched to unknown weapon type {firstCombEquip.GetType()}");
+            // Log($"Player switched to unknown weapon type {firstCombEquip.GetType()}");
             return;
         }
         

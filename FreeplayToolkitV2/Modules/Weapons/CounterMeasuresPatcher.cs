@@ -79,8 +79,8 @@ public class CounterMeasuresPatcher
         }
         else if (Main.MunitionsModifier.HasReloads)
         {
-            var magazine = Getmagazine(__instance);
-            Log($"Countermeasure Dispenser Id {-1} has {magazine} reloads remaining");
+            var magazine = GetMagazine(__instance);
+            // Log($"Countermeasure Dispenser Id {-1} has {magazine} reloads remaining");
             if (magazine > 0)
             {
                 if (!ActiveCoroutines.ContainsKey(__instance))
@@ -92,7 +92,7 @@ public class CounterMeasuresPatcher
                 }
                 else
                 {
-                    Log($"Countermeasure reload coroutine already in progress");
+                    // Log($"Countermeasure reload coroutine already in progress");
                 }
             }
             else
@@ -104,12 +104,12 @@ public class CounterMeasuresPatcher
         return;
     }
 
-    public static int Getmagazine(Countermeasure __instance)
+    public static int GetMagazine(Countermeasure instance)
     {
-        if (!MunitionsManager.CMMagazineTracker.TryGetValue(__instance, out int magazine))
+        if (!MunitionsManager.CMMagazineTracker.TryGetValue(instance, out int magazine))
         {
-            magazine = __instance.maxCount * Main.MunitionsModifier.ReloadCount;
-            MunitionsManager.CMMagazineTracker[__instance] = magazine;
+            magazine = instance.maxCount * Main.MunitionsModifier.ReloadCount;
+            MunitionsManager.CMMagazineTracker[instance] = magazine;
         }
 
         return magazine;

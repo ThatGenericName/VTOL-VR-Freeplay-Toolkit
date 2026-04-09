@@ -26,7 +26,7 @@ public class MunitionsManager
                 var cms = playerGO.GetComponentsInChildren<Countermeasure>();
                 foreach (var cm in cms)
                 {
-                    CounterMeasuresPatcher.Getmagazine(cm);
+                    CounterMeasuresPatcher.GetMagazine(cm);
                 }
             }
         }
