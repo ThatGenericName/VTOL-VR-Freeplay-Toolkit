@@ -1,0 +1,100 @@
+[h1]Freeplay Toolkit for VTOL:VR[/h1]
+
+Semi-configurable trainers for VTOL:VR for those who are like me and are bad at the game.
+
+This mod is singleplayer only, functionality by design does not work in multiplayer.
+
+Some testing has been done for aircraft mods like the F-22 and the F-16 mod and should work.
+
+[url=https://github.com/ThatGenericName/VTOL-VR-Freeplay-Toolkit]Source code can be found here[/url]
+
+[h2]Dependencies[/h2]
+
+This mod requires [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3265689427]VTOLAPI mod[/url]. Make sure to load that mod first before loading this mod.
+
+[h2]Configuration[/h2]
+
+The mode currently cannot be configured inside the game. Instead you need to go to the modloader settings directory at wherever the game and modloader is installed (should look something like `steamapps\common\VTOL VR\@Mod Loader\Settings\`), and under the `ccw.FreeplayToolkitV2` directory. After loading the mod for the first time, there will be 3 files that are settings files which can be modified to configure the settings for the mod.
+
+By default the configurations are setup so the game is no different than in vanilla.
+
+Once the mod loader's in game settings menu returns I will add configurability in game for this mod.
+
+[h2]Magic Pockets (In Flight Reloads)[/h2]
+
+Ever play games like Ace Combat, Project Wingman, and even as Tom Clancy H.A.W.X 2, only to be dismayed by the fact that fighters do not in fact, have the ability to magically reload their missiles mid-flight?
+
+Well the Magic Pockets is for you. The HUD also displays how many spare munitions are in your magic pockets.
+
+Countermeasures (Chaff and Flares) are also automatically reloaded.
+
+You can specify how many reloads per hardpoint you want in the `MunitionsModifier.toml` file in the settings directory. Note, there are other fields in the setting that has no effect. They will not be listed below.
+
+[list]
+  [*]`ReloadTime` - `float` (default: 15.0): Sets the reload delay in seconds after firing munitions.
+  [*]`ReloadCount` - `int` (default: 0): The number of reloads in hardpoint worth. Ie; if a hardpoint mounts 2 missiles, and this number is set to 5, you will have spare 10 missiles for that hardpoint.
+  [*]`InfiniteAmmo` - `bool` (default: false): Whether infinite ammo is enabled or not. If this is set to true, `ReloadCount` is ignored.
+[/list]
+
+[h2]Fuel Modifier[/h2]
+
+Want to keep afterburners on but don't want the baggage of external fuel tanks? A simple fuel consumption modifier can be set in `FuelModifier.toml`.
+
+[list]
+  [*]`FuelDrainModifier` - `float` (default, 1.0): Fuel consumption modifier, 1 is default/vanilla, 0 means no fuel consumption.
+[/list]
+
+[h2]Damage Modifiers[/h2]
+
+Suck at dodging missiles? Annoyed allies can't defend from missiles if their lives depend on it? Or just want to make the enemies harder to kill because you now have 500 missiles in your magic pockets? These configurations allow you to modify how much damage you, your allies, or your enemies take from different damage sources. 
+
+Configurations can be set in `DamageModifier.toml`
+
+[list]
+  [*]`AllyDamageMultiplier` - `float` (default, 1.0): Multiplier on the incoming damage for allies
+  [*]`SelfDamageMultiplier` - `float` (default, 1.0): Multiplier on the incoming damage for you the player
+  [*]`EnemyDamageMultiplier` - `float` (default, 1.0): Multiplier on the incoming damage for enemies.
+  [*]For the settings above, 1.0 means 1x incoming damage, 0.0 means no damage will be taken, etc.
+[/list]
+
+[h2]Future planned features[/h2]
+
+Will get around to these when I get around to them, in no particular order.
+
+Adding the Magic Pockets information to SMS page.
+
+Configurable per Munition reload counts
+
+[list]
+  [*]IE, AIM-120s get 10 reloads while Mk 83s have 5.
+[/list]
+
+Adding fuel burn modification to teammates and enemies
+
+Adding Magic Pockets to allies and enemies.
+
+Adding Magic Pocket info for countermeasures.
+
+Multiplayer compatibility; something like the host sets up parameters and clients can grab configuration from the host or something if this is something that's possible.
+
+[h2]Quirks and Known Bugs[/h2]
+
+[h3]Magic Pockets[/h3]
+
+[list]
+  [*]Only works for the player.
+  [*]Bug where sometimes munitions cannot be used after reload until all hardpoints have been reloaded. Ie, if you have 2 hardpoints, fired off 2 missiles, you won't be able to fire that munition until both hardpoints have been reloaded.
+  [*]When using guns, neither HUD nor HMD shows amount of bullets left in the Magic Pocket.
+[/list]
+
+[h3]Fuel Modifiers[/h3]
+
+[list]
+  [*]Currently only works on the player's fuel consumption
+[/list]
+
+[h3]Damage Modifiers[/h3]
+
+[list]
+  [*]Although the plane itself will suffer not damage, the player can still die (ie due to excessive G force from a CFIT).
+[/list]

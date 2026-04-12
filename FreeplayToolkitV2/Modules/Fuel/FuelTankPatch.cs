@@ -9,11 +9,12 @@ public static class FuelTankPatch
     [HarmonyPrefix]
     public static bool RequestFuelPrefix(FuelTank __instance, ref double deltaFuel)
     {
-        // Note, this is a bit annoying, FuelTanks don't store any information about
-        // what it's connected to, and so I'll have to do some trickery to do so.
-        // I'll use the OnSceneLoaded to cache the player's fuel tank and then
-        // compare a fuel tank to that.
-
+        
+        if (MultiplayerLock.IsMultiplayer)
+        {
+            return true;
+        }
+        
         if (FuelTankSearch.playerFuelTank == null)
         {
             return true;

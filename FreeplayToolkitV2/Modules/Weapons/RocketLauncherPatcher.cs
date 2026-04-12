@@ -15,12 +15,7 @@ public class RocketLauncherPatcher
     public static bool Prefix(RocketLauncher __instance, ref Actor ___parentActor)
     {
         CurrentIDX = __instance.currentIdx;
-            
-        if (VTScenario.current == null || !(___parentActor.isPlayer) || !Main.MunitionsModifier.InfiniteAmmo)
-        { // I apologize for this but this is literally the only way u can get to the actor through a Countermeasure
-            return true;
-        }
-            
+        
         return true;
     }
 
@@ -54,6 +49,11 @@ public class RocketLauncherPatcher
     [HarmonyPostfix]
     public static void Postfix(RocketLauncher __instance)
     {
+        if (MultiplayerLock.IsMultiplayer)
+        {
+            return;
+        }
+        
         if (VTScenario.current == null || !__instance.parentActor.isPlayer)
         {
             return;

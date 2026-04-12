@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using FreeplayToolkitV2.Settings;
 using HarmonyLib;
 using UnityEngine;
+using VTOLVR.Multiplayer;
 
 namespace FreeplayToolkitV2.Modules.Weapons;
 
@@ -64,6 +65,11 @@ public class GunPatcher
             return;
         }
 
+        if (MultiplayerLock.IsMultiplayer)
+        {
+            return;
+        }
+
         // if current ammo is greater or equal, no ammo was fired.
         if (__instance.currentAmmo >= StartAmmo)
         {
@@ -75,7 +81,7 @@ public class GunPatcher
         {
             return;
         }
-
+    
         if (VTScenario.current.infiniteAmmo)
         {
             return;

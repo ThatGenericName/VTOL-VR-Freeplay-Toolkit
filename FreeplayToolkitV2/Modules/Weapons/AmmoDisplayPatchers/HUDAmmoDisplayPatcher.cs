@@ -11,6 +11,10 @@ public class HUDAmmoDisplayPatcher
     [HarmonyPostfix]
     public static void Postfix(HUDWeaponInfo __instance)
     {
+        if (MultiplayerLock.IsMultiplayer)
+        {
+            return;
+        }
         
         if (!(__instance.weapon != null && __instance.weapon.itemActivated))
         {

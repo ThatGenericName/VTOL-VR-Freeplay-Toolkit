@@ -14,6 +14,8 @@ public static class FuelTankSearch
         {
             playerFuelTank = null;
         }
+        
+        
 
         var playerGO = VTAPI.GetPlayersVehicleGameObject();
         if (playerGO != null)

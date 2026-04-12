@@ -2,9 +2,11 @@
 
 Semi-configurable trainers for VTOL:VR for those who are like me and are bad at the game.
 
-This mod has neither been tested for, nor expected to work in multiplayer.
+This mod is singleplayer only, functionality by design does not work in multiplayer.
 
-Some testing has been done for aircraft mods like the F-22 and the F-16 mod and should work.
+Some testing has been done for aircraft mods, should be compatible with the F-22 and F-16 mods
+
+Has not been tested for mods that use Custom Weapons base.
 
 ## Dependencies
 
@@ -61,6 +63,7 @@ Adding Magic Pockets to allies and enemies.
 
 Adding Magic Pocket info for countermeasures.
 
+Multiplayer compatibility; something like the host sets up parameters and clients can grab configuration from the host or something if this is something that's possible.
 
 ## Quirks and Known Bugs
 
@@ -76,4 +79,5 @@ Adding Magic Pocket info for countermeasures.
 
 ### Damage Modifiers
 
-* Although the plane itself will suffer now damage, the player can still die (ie due to G force from a CFIT).
+* Although the plane itself will suffer not damage, the player can still die (ie due to excessive G force from a CFIT).
+

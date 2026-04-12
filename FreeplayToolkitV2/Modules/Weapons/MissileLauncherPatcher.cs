@@ -14,6 +14,11 @@ public class MissileLauncherPatcher
     public static bool Prefix(MissileLauncher __instance, ref int mIdx)
     {
         MIDX = mIdx;
+        if (MultiplayerLock.IsMultiplayer)
+        {
+            return true;
+        }
+        
         Log("Missile object Launched, testing conditions");
         var missileInstance = __instance.missiles[mIdx];
         Log($"Missile Object: {missileInstance.gameObject.name}");
@@ -57,6 +62,10 @@ public class MissileLauncherPatcher
     [HarmonyPostfix]
     public static void Postfix(MissileLauncher __instance)
     {   
+        if (MultiplayerLock.IsMultiplayer)
+        {
+            return;
+        }
 
         if (VTScenario.current == null || !__instance.parentActor.isPlayer)
         {

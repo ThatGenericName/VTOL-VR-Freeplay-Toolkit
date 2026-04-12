@@ -22,6 +22,11 @@ public class HMDAmmoDisplayPatcher
     [HarmonyPostfix]
     public static void Postfix(HMDWeaponInfo __instance)
     {
+        if (MultiplayerLock.IsMultiplayer)
+        {
+            return;
+        }
+        
         if (!__instance.wm || !__instance.wm.currentEquip)
         {
             return;

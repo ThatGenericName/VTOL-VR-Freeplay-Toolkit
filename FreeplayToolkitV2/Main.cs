@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using FreeplayToolkitV2.Modules;
+using FreeplayToolkitV2.Modules.Fuel;
 using FreeplayToolkitV2.Modules.Weapons;
 using FreeplayToolkitV2.Settings;
 using ModLoader.Framework;
@@ -35,6 +36,7 @@ public class Main : VtolMod
         MunitionsModifier.PrintoutCurrentSettings();
 
         VTAPI.SceneLoaded += MunitionsManager.OnSceneLoaded;
+        VTAPI.SceneLoaded += FuelTankSearch.OnSceneLoaded;
     }
 
     public static MunitionsModifier MunitionsModifier;

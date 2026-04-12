@@ -10,15 +10,7 @@ namespace FreeplayToolkitV2.Modules.Weapons;
 [HarmonyPatch(typeof(Countermeasure), nameof(Countermeasure.ConsumeCM))]
 public class CounterMeasuresPatcher
 {
-
-    [HarmonyPrefix]
-    public static bool Prefix(Countermeasure __instance, int side)
-    {
-        Side = side;
-        return true;
-    }
-
-    public static int Side;
+    
     
     public static WaitForSeconds AmmoReloadWait => new(Main.MunitionsModifier.ReloadTime);
     
@@ -57,8 +49,6 @@ public class CounterMeasuresPatcher
     [HarmonyPostfix]
     public static void Postfix(Countermeasure __instance)
     {
-        // I apologize for this but this is literally the only way u can get to the actor through a Countermeasure
-
         
         if (VTScenario.current == null)
         { 
@@ -67,6 +57,11 @@ public class CounterMeasuresPatcher
         
         bool isPlayer = MunitionsManager.CMMagazineTracker.ContainsKey(__instance);
 
+        if (MultiplayerLock.IsMultiplayer)
+        {
+            return;
+        }
+        
         if (VTScenario.current.infiniteAmmo)
         {
             return;
@@ -87,7 +82,7 @@ public class CounterMeasuresPatcher
                 {
                     var reloadCoroutineClass = new ReloadCoroutineClass(__instance);
                     ActiveCoroutines.Add(__instance, reloadCoroutineClass);
-                    Log($"Creating Countermeasures reload coroutine!");
+                    // Log($"Creating Countermeasures reload coroutine!");
                     __instance.StartCoroutine(reloadCoroutineClass.ReloadCoroutine());
                 }
                 else
