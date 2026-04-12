@@ -37,6 +37,7 @@ public class Main : VtolMod
 
         VTAPI.SceneLoaded += MunitionsManager.OnSceneLoaded;
         VTAPI.SceneLoaded += FuelTankSearch.OnSceneLoaded;
+        VTAPI.SceneLoaded += MultiplayerLock.OnSceneLoaded;
     }
 
     public static MunitionsModifier MunitionsModifier;
